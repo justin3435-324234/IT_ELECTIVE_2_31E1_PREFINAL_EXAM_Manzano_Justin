@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ExamApp.Models.ExamQuestion>
+
+@{
+    ViewData["Title"] = "Pre-Final Exam - Manzano, Justin (31E1)";
+}
+
+<div class="container my-5">
+    <!-- Header Banner -->
+    <div class="p-5 mb-5 bg-gradient bg-dark text-white rounded-4 shadow-lg border border-secondary">
+        <div class="container-fluid py-2">
+            <h1 class="display-5 fw-bold text-info">IT Elective 2 Pre-Final Exam</h1>
+            <p class="fs-4 mt-2">Student: <strong class="text-warning">Manzano, Justin</strong> | Class & Section: <strong class="text-light">BSIT - 31E1</strong></p>
+            <hr class="my-3 border-light opacity-50">
+            <p class="text-light mb-0">Interactive ASP.NET Core MVC Presentation of Pre-Final Examination Questions, Options, and Verified Explanations.</p>
+        </div>
+    </div>
+
+    <!-- Exam Questions List -->
+    <div class="row">
+        @foreach (var q in Model)
+        {
+            <div class="col-lg-12 mb-4">
+                <div class="card shadow border-0 rounded-3 overflow-hidden">
+                    <!-- Card Header -->
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3 px-4">
+                        <h5 class="mb-0"><strong>Question @q.Number</strong> <span class="badge bg-secondary ms-2 fs-6">@q.Category</span></h5>
+                        <span class="badge bg-success fs-6 px-3 py-2 shadow-sm">Correct Answer: @q.CorrectAnswer</span>
+                    </div>
+                    <!-- Card Body -->
+                    <div class="card-body bg-light p-4">
+                        <h4 class="card-title fw-semibold text-dark mb-4">@q.QuestionText</h4>
+                        
+                        <!-- Options List -->
+                        <ul class="list-group list-group-flush mb-4 shadow-sm rounded">
+                            <li class="list-group-item py-3 px-3 @(q.CorrectAnswer == "A" ? "bg-success text-white fw-bold" : "bg-white")">
+                                <span class="badge bg-dark me-2">A</span> @q.OptionA
+                            </li>
+                            <li class="list-group-item py-3 px-3 @(q.CorrectAnswer == "B" ? "bg-success text-white fw-bold" : "bg-white")">
+                                <span class="badge bg-dark me-2">B</span> @q.OptionB
+                            </li>
+                            <li class="list-group-item py-3 px-3 @(q.CorrectAnswer == "C" ? "bg-success text-white fw-bold" : "bg-white")">
+                                <span class="badge bg-dark me-2">C</span> @q.OptionC
+                            </li>
+                            <li class="list-group-item py-3 px-3 @(q.CorrectAnswer == "D" ? "bg-success text-white fw-bold" : "bg-white")">
+                                <span class="badge bg-dark me-2">D</span> @q.OptionD
+                            </li>
+                        </ul>
+
+                        <!-- Explanation Box -->
+                        <div class="alert alert-info border-0 shadow-sm mb-0 p-3">
+                            <strong>Explanation:</strong> @q.Explanation
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
