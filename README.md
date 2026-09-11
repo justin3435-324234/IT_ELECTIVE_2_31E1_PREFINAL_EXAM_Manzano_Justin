@@ -1,1 +1,1 @@
-# IT_ELECTIVE_2_31E1_PREFINAL_EXAM_Manzano_Justin
+# Manzano, Justin | IT Elective 2 - Section BSIT-31E1
